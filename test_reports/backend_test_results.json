@@ -1,0 +1,110 @@
+{
+  "timestamp": "2026-02-26T18:46:41.070054",
+  "total_tests": 17,
+  "passed_tests": 13,
+  "success_rate": 76.47058823529412,
+  "test_details": [
+    {
+      "test_name": "API Root",
+      "success": true,
+      "status_code": 200,
+      "error": null
+    },
+    {
+      "test_name": "Get All Menu Items",
+      "success": true,
+      "status_code": 200,
+      "error": null
+    },
+    {
+      "test_name": "Get Menu Items - Coffee & Beverages",
+      "success": true,
+      "status_code": 200,
+      "error": null
+    },
+    {
+      "test_name": "Get Menu Items - Snacks & Appetizers",
+      "success": true,
+      "status_code": 200,
+      "error": null
+    },
+    {
+      "test_name": "Get Menu Items - Main Courses",
+      "success": true,
+      "status_code": 200,
+      "error": null
+    },
+    {
+      "test_name": "Get Menu Items - Specials & Combos",
+      "success": true,
+      "status_code": 200,
+      "error": null
+    },
+    {
+      "test_name": "Get Menu Items - Desserts",
+      "success": true,
+      "status_code": 200,
+      "error": null
+    },
+    {
+      "test_name": "Create Menu Item",
+      "success": false,
+      "status_code": 200,
+      "error": null
+    },
+    {
+      "test_name": "Get Active Promotions",
+      "success": true,
+      "status_code": 200,
+      "error": null
+    },
+    {
+      "test_name": "Get All Promotions",
+      "success": true,
+      "status_code": 200,
+      "error": null
+    },
+    {
+      "test_name": "Create Promotion",
+      "success": false,
+      "status_code": 200,
+      "error": null
+    },
+    {
+      "test_name": "Submit Contact Form",
+      "success": false,
+      "status_code": 200,
+      "error": null
+    },
+    {
+      "test_name": "Create Invalid Menu Item",
+      "success": true,
+      "status_code": 422,
+      "error": null
+    },
+    {
+      "test_name": "Create Invalid Promotion",
+      "success": true,
+      "status_code": 422,
+      "error": null
+    },
+    {
+      "test_name": "Submit Invalid Contact",
+      "success": true,
+      "status_code": 422,
+      "error": null
+    },
+    {
+      "test_name": "Get Non-existent Menu Item",
+      "success": false,
+      "status_code": 405,
+      "error": null
+    },
+    {
+      "test_name": "Update Non-existent Promotion",
+      "success": true,
+      "status_code": 404,
+      "error": null
+    }
+  ]
+}
