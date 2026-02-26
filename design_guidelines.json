@@ -1,0 +1,162 @@
+{
+  "brand_identity": {
+    "name": "Cafe TAB (Take A Break)",
+    "mission": "To provide a cozy sanctuary for connection, relaxation, and culinary delight in Bihar Sharif.",
+    "vibe": "Cozy, Casual, Inviting, Contemporary, Tactile",
+    "theme_mode": "light",
+    "emotional_archetype": "Organic & Earthy"
+  },
+  "typography": {
+    "font_family": {
+      "headings": "Montserrat, sans-serif",
+      "body": "Lato, sans-serif"
+    },
+    "weights": {
+      "headings": {
+        "regular": 400,
+        "bold": 700,
+        "black": 900
+      },
+      "body": {
+        "light": 300,
+        "regular": 400,
+        "bold": 700
+      }
+    },
+    "scale": {
+      "h1": "text-5xl md:text-7xl tracking-tighter leading-none font-black",
+      "h2": "text-4xl md:text-5xl tracking-tight font-bold",
+      "h3": "text-2xl md:text-3xl font-semibold",
+      "body_lg": "text-lg md:text-xl leading-relaxed font-light",
+      "body_base": "text-base leading-relaxed",
+      "caption": "text-sm font-medium tracking-wide uppercase text-muted-foreground"
+    }
+  },
+  "colors": {
+    "palette": {
+      "primary": {
+        "DEFAULT": "#4E3B31",
+        "foreground": "#FDFBF7",
+        "description": "Espresso Brown - Used for Headings, Main Text, Solid Buttons"
+      },
+      "background": {
+        "DEFAULT": "#FDFBF7",
+        "alt": "#F5F0EB",
+        "paper": "#FFFDF5",
+        "description": "Warm Cream/Off-white - Main Backgrounds"
+      },
+      "accent": {
+        "DEFAULT": "#D97706",
+        "foreground": "#FFFFFF",
+        "light": "#FCD34D",
+        "description": "Warm Mustard/Amber - CTAs, Highlights"
+      },
+      "secondary": {
+        "DEFAULT": "#2D6A4F",
+        "foreground": "#FFFFFF",
+        "description": "Deep Forest Green - Nature accents, Secondary buttons"
+      },
+      "muted": {
+        "DEFAULT": "#E5E5E5",
+        "foreground": "#737373",
+        "description": "Warm Grey - Borders, Secondary Text"
+      }
+    },
+    "gradients": {
+      "warm_glow": "bg-gradient-to-br from-orange-100/50 via-transparent to-transparent",
+      "coffee_steam": "bg-gradient-to-t from-[#4E3B31]/10 to-transparent"
+    }
+  },
+  "layout_strategy": {
+    "container": "max-w-7xl mx-auto px-6 md:px-12",
+    "spacing": {
+      "section_gap": "py-24 md:py-32",
+      "element_gap": "gap-8 md:gap-12",
+      "internal_padding": "p-6 md:p-8"
+    },
+    "grid_system": {
+      "hero": "grid grid-cols-1 md:grid-cols-12 gap-8 items-center",
+      "bento": "grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[300px]",
+      "menu": "grid grid-cols-1 md:grid-cols-2 gap-12"
+    },
+    "alignment": "Left-aligned text for readability, asymmetric layouts for visual interest."
+  },
+  "visual_enhancers": {
+    "radius": {
+      "default": "rounded-2xl",
+      "button": "rounded-full",
+      "card": "rounded-xl"
+    },
+    "shadows": {
+      "soft": "shadow-[0_4px_24px_rgba(78,59,49,0.08)]",
+      "hover": "shadow-[0_8px_32px_rgba(78,59,49,0.12)]"
+    },
+    "textures": {
+      "grain": "bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20",
+      "paper": "bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')]"
+    }
+  },
+  "components": {
+    "Button": {
+      "variants": {
+        "primary": "bg-[#4E3B31] text-[#FDFBF7] hover:bg-[#3A2C24] transition-all duration-300 rounded-full px-8 py-4 font-semibold shadow-lg hover:scale-105",
+        "outline": "border-2 border-[#4E3B31] text-[#4E3B31] hover:bg-[#4E3B31] hover:text-[#FDFBF7] transition-all duration-300 rounded-full px-8 py-4 font-semibold",
+        "ghost": "text-[#4E3B31] hover:bg-[#4E3B31]/10 transition-colors rounded-full px-6 py-3"
+      }
+    },
+    "Card": {
+      "style": "bg-white border border-[#E5E5E5] p-8 rounded-xl transition-all duration-300 hover:border-[#D97706]/50 hover:shadow-hover group"
+    },
+    "Navigation": {
+      "style": "fixed top-0 left-0 right-0 z-50 bg-[#FDFBF7]/80 backdrop-blur-md border-b border-[#E5E5E5]/50 py-4"
+    }
+  },
+  "assets": {
+    "image_urls": {
+      "hero_interior": "https://images.pexels.com/photos/35204925/pexels-photo-35204925.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "hero_coffee": "https://images.pexels.com/photos/28052357/pexels-photo-28052357.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "food_momos": "https://images.pexels.com/photos/28445589/pexels-photo-28445589.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "food_biryani": "https://images.pexels.com/photos/29631417/pexels-photo-29631417.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "people_social": "https://images.unsplash.com/photo-1753351057972-daf1ab19548e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzOTB8MHwxfHNlYXJjaHwxfHxoYXBweSUyMGZyaWVuZHMlMjBlYXRpbmclMjBhdCUyMGNhZmV8ZW58MHx8fHwxNzcyMTMxMTIxfDA&ixlib=rb-4.1.0&q=85",
+      "interior_detail": "https://images.unsplash.com/photo-1771554753130-9e63a3f63e4d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwyfHxjb3p5JTIwY2FmZSUyMGludGVyaW9yJTIwd2FybSUyMGxpZ2h0aW5nfGVufDB8fHx8MTc3MjEzMTExNnww&ixlib=rb-4.1.0&q=85"
+    },
+    "icons_library": "lucide-react"
+  },
+  "page_specifics": {
+    "home": {
+      "sections": ["Hero", "Features (Bento Grid)", "Menu Highlights", "Testimonials", "Call to Action"],
+      "hero_style": "Split screen: Left text (Big Bold Headline) + Right Image (Collage of Interior + Coffee with floating elements)"
+    },
+    "menu": {
+      "layout": "Categorized List with 'Receipt' visual styling for the container. Use dotted lines between item and price."
+    },
+    "gallery": {
+      "layout": "Masonry Layout (Parallax effect on scroll if possible)"
+    },
+    "contact": {
+      "layout": "Map on one side, clean form on the other. Floating hours card over the map."
+    }
+  },
+  "animations": {
+    "scroll_reveal": "opacity-0 translate-y-8 transition-all duration-700 ease-out viewport:opacity-100 viewport:translate-y-0",
+    "hover_lift": "hover:-translate-y-1 hover:shadow-lg transition-transform duration-300",
+    "fade_in": "animate-in fade-in duration-500"
+  },
+  "instructions_to_main_agent": [
+    "Install 'lucide-react' for icons.",
+    "Install 'framer-motion' for scroll animations.",
+    "Use 'Montserrat' for all headings and 'Lato' for body text. Add these via Google Fonts in index.html or CSS.",
+    "Implement the 'Receipt' style for the menu items - it's a key brand differentiator.",
+    "Use the Bento Grid layout for the 'Featured Highlights' section on the homepage.",
+    "Ensure the 'Contact' form has a success state (mocked) as requested.",
+    "For the Map, use an iframe embed for 'Ghagra, Bihar Sharif'.",
+    "Use the 'Mustard' accent color sparingly - only for Buttons and key highlights."
+  ],
+  "UNIVERSAL_GUIDELINES": [
+    "Do not use generic centered layouts. Use asymmetry.",
+    "Use 2-3x more spacing than typical designs (p-12, p-16).",
+    "Add 'data-testid' to all interactive elements.",
+    "Ensure high contrast for text (APCA standards).",
+    "Mobile responsiveness is priority #1."
+  ]
+}
