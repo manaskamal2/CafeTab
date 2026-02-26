@@ -178,6 +178,40 @@ export const Home = () => {
       {/* Featured Menu */}
       <section className="py-24 md:py-32">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
+          {/* Special Offers */}
+          {promotions.length > 1 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-20"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-[#4E3B31] mb-8 tracking-tight text-center">
+                Special Offers
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {promotions.map((promo, idx) => (
+                  <motion.div
+                    key={promo.id}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: idx * 0.1 }}
+                  >
+                    <Card
+                      data-testid={`offer-card-${idx}`}
+                      className="bg-gradient-to-br from-[#D97706]/10 to-[#2D6A4F]/10 border-2 border-[#D97706] p-6 rounded-xl hover:shadow-[0_8px_32px_rgba(217,119,6,0.2)] transition-all duration-300 text-center"
+                    >
+                      <h3 className="text-xl font-bold text-[#4E3B31] mb-2">{promo.title}</h3>
+                      <p className="text-sm text-[#737373]">{promo.description}</p>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
