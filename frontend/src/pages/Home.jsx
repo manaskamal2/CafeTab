@@ -239,6 +239,73 @@ export const Home = () => {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="py-24 md:py-32 bg-[#F5F0EB]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-[#4E3B31] mb-4 tracking-tight">
+              What Our Customers Say
+            </h2>
+            <p className="text-lg text-[#737373] max-w-2xl mx-auto">
+              Don't just take our word for it - hear from our happy customers
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                name: 'Rahul Kumar',
+                role: 'Student',
+                review: 'Best place to study and enjoy great coffee in Bihar Sharif! The Wi-Fi is fast and the ambiance is perfect for long study sessions.',
+                rating: 5,
+              },
+              {
+                name: 'Priya Singh',
+                role: 'Food Blogger',
+                review: 'The momos here are absolutely delicious! Authentic taste and generous portions. The biryani is a must-try too!',
+                rating: 5,
+              },
+              {
+                name: 'Amit Sharma',
+                role: 'Professional',
+                review: 'My go-to spot for morning coffee before work. Friendly staff, cozy atmosphere, and consistently good quality. Highly recommend!',
+                rating: 5,
+              },
+            ].map((testimonial, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+              >
+                <Card
+                  data-testid={`testimonial-${idx}`}
+                  className="bg-white border border-[#E5E5E5] p-8 rounded-xl hover:border-[#D97706]/50 hover:shadow-[0_8px_32px_rgba(78,59,49,0.12)] transition-all duration-300 h-full"
+                >
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 text-[#D97706] fill-[#D97706]" />
+                    ))}
+                  </div>
+                  <p className="text-[#737373] mb-6 leading-relaxed italic">"{testimonial.review}"</p>
+                  <div className="mt-auto">
+                    <p className="text-[#4E3B31] font-semibold">{testimonial.name}</p>
+                    <p className="text-sm text-[#737373]">{testimonial.role}</p>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Call to Action */}
       <section className="py-24 md:py-32 bg-[#4E3B31] text-[#FDFBF7]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
