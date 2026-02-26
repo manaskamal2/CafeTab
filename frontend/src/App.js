@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Toaster } from '@/components/ui/sonner';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { WhatsAppButton } from '@/components/WhatsAppButton';
 import { Home } from '@/pages/Home';
 import { About } from '@/pages/About';
 import { Menu } from '@/pages/Menu';
@@ -24,6 +25,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
+        <WhatsAppButton />
         <Toaster position="top-right" />
       </div>
     </BrowserRouter>
