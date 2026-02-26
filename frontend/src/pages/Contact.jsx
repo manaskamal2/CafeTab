@@ -122,7 +122,7 @@ export const Contact = () => {
                 </div>
                 <h3 className="text-lg font-semibold text-[#4E3B31] mb-2">Phone</h3>
                 <p className="text-sm text-[#737373]">
-                  +91 XXXXX-XXXXX
+                  +91 6207725718
                 </p>
               </Card>
             </div>
