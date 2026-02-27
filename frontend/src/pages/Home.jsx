@@ -6,26 +6,39 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import axios from 'axios';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+// Fallback to empty string if env is missing to prevent "undefined/api" strings
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || '';
 const API = `${BACKEND_URL}/api`;
 
 export const Home = () => {
   const [promotions, setPromotions] = useState([]);
   const [featuredMenu, setFeaturedMenu] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
+        // Using a try-catch inside the async function is good practice
         const [promosRes, menuRes] = await Promise.all([
-          axios.get(`${API}/promotions`),
-          axios.get(`${API}/menu`),
+          axios.get(`${API}/promotions`).catch(() => ({ data: [] })),
+          axios.get(`${API}/menu`).catch(() => ({ data: [] })),
         ]);
-        setPromotions(promosRes.data);
-        setFeaturedMenu(menuRes.data.slice(0, 6));
+
+        const promosData = Array.isArray(promosRes.data) ? promosRes.data : [];
+        const menuData = Array.isArray(menuRes.data) ? menuRes.data : [];
+
+        setPromotions(promosData);
+        setFeaturedMenu(menuData.slice(0, 6));
       } catch (error) {
         console.error('Error fetching data:', error);
+        setPromotions([]);
+        setFeaturedMenu([]);
+      } finally {
+        setLoading(false);
       }
     };
+
     fetchData();
   }, []);
 
@@ -42,8 +55,8 @@ export const Home = () => {
               transition={{ duration: 0.7 }}
               className="md:col-span-6 space-y-6"
             >
-              {/* Promotional Banner */}
-              {promotions.length > 0 && (
+              {/* Promotional Banner - Added optional chaining */}
+              {promotions?.length > 0 && promotions[0]?.title && (
                 <div data-testid="promo-banner" className="inline-block bg-[#D97706]/10 border border-[#D97706]/30 rounded-full px-6 py-2">
                   <p className="text-sm font-semibold text-[#D97706]">{promotions[0].title}</p>
                 </div>
@@ -96,7 +109,6 @@ export const Home = () => {
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   />
                 </div>
-                {/* Floating Elements */}
                 <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-lg">
                   <div className="flex items-center gap-2">
                     <Star className="w-5 h-5 text-[#D97706] fill-[#D97706]" />
@@ -178,8 +190,8 @@ export const Home = () => {
       {/* Featured Menu */}
       <section className="py-24 md:py-32">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          {/* Special Offers */}
-          {promotions.length > 1 && (
+          {/* Special Offers - Added defensive checks */}
+          {Array.isArray(promotions) && promotions.length > 0 && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -193,7 +205,7 @@ export const Home = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {promotions.map((promo, idx) => (
                   <motion.div
-                    key={promo.id}
+                    key={promo.id || idx}
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -228,9 +240,10 @@ export const Home = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredMenu.map((item, idx) => (
+            {/* The main fix: Using Optional Chaining and fallback to empty array */}
+            {(featuredMenu || []).map((item, idx) => (
               <motion.div
-                key={item.id}
+                key={item?.id || idx}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -240,19 +253,19 @@ export const Home = () => {
                   data-testid={`featured-item-${idx}`}
                   className="bg-white border border-[#E5E5E5] rounded-xl overflow-hidden hover:border-[#D97706]/50 hover:shadow-[0_8px_32px_rgba(78,59,49,0.12)] transition-all duration-300 group"
                 >
-                  <div className="aspect-[4/3] overflow-hidden">
+                  <div className="aspect-[4/3] overflow-hidden bg-gray-100">
                     <img
-                      src={item.image_url}
-                      alt={item.name}
+                      src={item?.image_url || 'https://via.placeholder.com/400x300?text=Cafe+TAB'}
+                      alt={item?.name || 'Menu Item'}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
                   <div className="p-6">
                     <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-xl font-semibold text-[#4E3B31]">{item.name}</h3>
-                      <span className="text-lg font-bold text-[#D97706]">₹{item.price}</span>
+                      <h3 className="text-xl font-semibold text-[#4E3B31]">{item?.name || 'Loading...'}</h3>
+                      <span className="text-lg font-bold text-[#D97706]">₹{item?.price || '--'}</span>
                     </div>
-                    <p className="text-sm text-[#737373]">{item.description}</p>
+                    <p className="text-sm text-[#737373]">{item?.description}</p>
                   </div>
                 </Card>
               </motion.div>
