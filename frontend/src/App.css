@@ -36,7 +36,18 @@ html {
 [href*="emergent.sh"],
 a[href*="emergent.sh"],
 div[class*="emergent"],
-button[class*="emergent"] {
+button[class*="emergent"],
+/* Target the specific badge element */
+div[style*="position: fixed"],
+button[style*="position: fixed"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* More specific targeting */
+body > div:last-child,
+body > button:last-child {
   display: none !important;
 }
 
