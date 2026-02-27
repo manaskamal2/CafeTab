@@ -58,6 +58,14 @@ code {
     h1, h2, h3, h4, h5, h6 {
         font-family: 'Montserrat', sans-serif;
     }
+    
+    /* Hide Emergent badge globally */
+    #emergent-badge,
+    [id*="emergent"],
+    [class*="emergent-badge"] {
+        display: none !important;
+        visibility: hidden !important;
+    }
 }
 
 @layer utilities {
