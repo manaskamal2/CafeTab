@@ -32,6 +32,14 @@ html {
   background: #3A2C24;
 }
 
+/* Hide Made with Emergent badge */
+[href*="emergent.sh"],
+a[href*="emergent.sh"],
+div[class*="emergent"],
+button[class*="emergent"] {
+  display: none !important;
+}
+
 /* Animations */
 @keyframes fadeInUp {
   from {
