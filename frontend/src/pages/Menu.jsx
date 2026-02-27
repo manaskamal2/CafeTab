@@ -67,21 +67,23 @@ export const Menu = () => {
 
         {/* Category Tabs */}
         <Tabs defaultValue="all" className="w-full" onValueChange={setActiveCategory}>
-          <TabsList
-            data-testid="menu-category-tabs"
-            className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12 bg-[#F5F0EB] p-3 sm:p-2 rounded-2xl sm:rounded-full"
-          >
-            {categories.map((cat) => (
-              <TabsTrigger
-                key={cat.id}
-                value={cat.id}
-                data-testid={`category-tab-${cat.id}`}
-                className="px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 data-[state=active]:bg-[#4E3B31] data-[state=active]:text-[#FDFBF7] text-[#4E3B31] hover:bg-[#4E3B31]/10 whitespace-nowrap"
-              >
-                {cat.name}
-              </TabsTrigger>
-            ))}
-          </TabsList>
+          <div className="mb-12">
+            <TabsList
+              data-testid="menu-category-tabs"
+              className="inline-flex md:flex flex-nowrap md:flex-wrap justify-start md:justify-center gap-2 md:gap-3 bg-[#F5F0EB] p-3 md:p-2 rounded-2xl md:rounded-full overflow-x-auto md:overflow-visible w-full scrollbar-hide"
+            >
+              {categories.map((cat) => (
+                <TabsTrigger
+                  key={cat.id}
+                  value={cat.id}
+                  data-testid={`category-tab-${cat.id}`}
+                  className="px-5 md:px-6 py-2.5 md:py-3 rounded-full text-sm font-medium transition-all duration-300 data-[state=active]:bg-[#4E3B31] data-[state=active]:text-[#FDFBF7] text-[#4E3B31] hover:bg-[#4E3B31]/10 whitespace-nowrap flex-shrink-0"
+                >
+                  {cat.name}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </div>
 
           {loading ? (
             <div className="text-center py-20">
