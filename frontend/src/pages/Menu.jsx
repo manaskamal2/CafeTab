@@ -69,14 +69,14 @@ export const Menu = () => {
         <Tabs defaultValue="all" className="w-full" onValueChange={setActiveCategory}>
           <TabsList
             data-testid="menu-category-tabs"
-            className="flex flex-wrap justify-center gap-2 mb-12 bg-[#F5F0EB] p-2 rounded-full"
+            className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12 bg-[#F5F0EB] p-3 sm:p-2 rounded-2xl sm:rounded-full"
           >
             {categories.map((cat) => (
               <TabsTrigger
                 key={cat.id}
                 value={cat.id}
                 data-testid={`category-tab-${cat.id}`}
-                className="px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 data-[state=active]:bg-[#4E3B31] data-[state=active]:text-[#FDFBF7] text-[#4E3B31] hover:bg-[#4E3B31]/10"
+                className="px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 data-[state=active]:bg-[#4E3B31] data-[state=active]:text-[#FDFBF7] text-[#4E3B31] hover:bg-[#4E3B31]/10 whitespace-nowrap"
               >
                 {cat.name}
               </TabsTrigger>
